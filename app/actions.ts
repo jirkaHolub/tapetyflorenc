@@ -1,10 +1,10 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { Resend } from "resend";
 
 export type SubmitState =
   | { status: "idle" }
-  | { status: "ok" }
   | { status: "error"; message: string };
 
 const MAX_PHOTO_BYTES = 10 * 1024 * 1024;
@@ -83,11 +83,12 @@ export async function submitVisualization(
   });
 
   if (error) {
+    console.error("Resend send failed", error);
     return {
       status: "error",
       message: "Nepodařilo se odeslat. Zkuste to prosím znovu.",
     };
   }
 
-  return { status: "ok" };
+  redirect("/dekujeme");
 }

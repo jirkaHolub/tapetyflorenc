@@ -27,161 +27,144 @@ export default function Page() {
       </header>
 
       <main>
-        {state.status === "ok" ? (
-          <>
-            <span className="eyebrow">Hotovo</span>
-            <h1>
-              Máme to. Vizualizaci ti pošleme{" "}
-              <span className="hl">do 24 hodin</span>.
-            </h1>
-            <p className="sub">
-              Zkontroluj si e-mail (a pro jistotu i složku Hromadné). Pokud
-              bude potřeba něco doladit, ozveme se zpátky.
-            </p>
-          </>
-        ) : (
-          <>
-            <span className="eyebrow">Zdarma · Do 24 hodin</span>
-            <h1>
-              Uvidíš tapetu ve svém pokoji{" "}
-              <span className="hl">dřív, než ji koupíš</span>.
-            </h1>
-            <p className="sub">
-              Pošli odkaz na tapetu a fotku stěny. Náš designér ti zdarma
-              připraví realistickou vizualizaci, ať máš jistotu, že do tvého
-              pokoje sedne.
-            </p>
+        <span className="eyebrow">Zdarma · Do 24 hodin</span>
+        <h1>
+          Uvidíš tapetu ve svém pokoji{" "}
+          <span className="hl">dřív, než ji koupíš</span>.
+        </h1>
+        <p className="sub">
+          Pošli odkaz na tapetu a fotku stěny. Náš designér ti zdarma
+          připraví realistickou vizualizaci, ať máš jistotu, že do tvého
+          pokoje sedne.
+        </p>
 
-            <form ref={formRef} action={formAction}>
-              <div className="row">
-                <div>
-                  <label htmlFor="firstName">Jméno</label>
-                  <input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    required
-                    autoComplete="given-name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName">Příjmení</label>
-                  <input
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    required
-                    autoComplete="family-name"
-                  />
-                </div>
-              </div>
+        <form ref={formRef} action={formAction}>
+          <div className="row">
+            <div>
+              <label htmlFor="firstName">Jméno</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                autoComplete="given-name"
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName">Příjmení</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                autoComplete="family-name"
+              />
+            </div>
+          </div>
 
-              <div>
-                <label htmlFor="email">E-mail</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  placeholder="vas@email.cz"
-                />
-              </div>
+          <div>
+            <label htmlFor="email">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="vas@email.cz"
+            />
+          </div>
 
-              <div>
-                <label htmlFor="link1">Odkaz na tapetu z e-shopu</label>
-                <input
-                  id="link1"
-                  name="link1"
-                  type="url"
-                  required
-                  placeholder="https://..."
-                />
-              </div>
+          <div>
+            <label htmlFor="link1">Odkaz na tapetu z e-shopu</label>
+            <input
+              id="link1"
+              name="link1"
+              type="url"
+              required
+              placeholder="https://..."
+            />
+          </div>
 
-              {!showLink2 && (
-                <button
-                  type="button"
-                  className="add-link"
-                  onClick={() => setShowLink2(true)}
-                >
-                  + Přidat druhou tapetu pro porovnání
-                </button>
-              )}
+          {!showLink2 && (
+            <button
+              type="button"
+              className="add-link"
+              onClick={() => setShowLink2(true)}
+            >
+              + Přidat druhou tapetu pro porovnání
+            </button>
+          )}
 
-              <div className={`second-link${showLink2 ? " show" : ""}`}>
-                <label htmlFor="link2">Odkaz na druhou tapetu</label>
-                <input
-                  id="link2"
-                  name="link2"
-                  type="url"
-                  placeholder="https://..."
-                />
-              </div>
+          <div className={`second-link${showLink2 ? " show" : ""}`}>
+            <label htmlFor="link2">Odkaz na druhou tapetu</label>
+            <input
+              id="link2"
+              name="link2"
+              type="url"
+              placeholder="https://..."
+            />
+          </div>
 
-              <div>
-                <label>Fotka pokoje</label>
-                <div
-                  className={`drop${dragOver ? " drag" : ""}`}
-                  onDragOver={(e) => {
-                    e.preventDefault();
-                    setDragOver(true);
-                  }}
-                  onDragLeave={() => setDragOver(false)}
-                  onDrop={(e) => {
-                    e.preventDefault();
-                    setDragOver(false);
-                    const file = e.dataTransfer.files?.[0];
-                    if (file && formRef.current) {
-                      const input = formRef.current.elements.namedItem(
-                        "roomPhoto",
-                      ) as HTMLInputElement;
-                      const dt = new DataTransfer();
-                      dt.items.add(file);
-                      input.files = dt.files;
-                      setFileName(file.name);
-                    }
-                  }}
-                >
-                  <div className="icon">+</div>
-                  <b>Klikni nebo přetáhni fotku</b>
-                  <span className="hint">JPG/PNG, max 10 MB</span>
-                  {fileName && <div className="file-name">✓ {fileName}</div>}
-                  <input
-                    type="file"
-                    name="roomPhoto"
-                    accept="image/*"
-                    required
-                    onChange={(e) =>
-                      setFileName(e.target.files?.[0]?.name ?? null)
-                    }
-                  />
-                </div>
-              </div>
+          <div>
+            <label>Fotka pokoje</label>
+            <div
+              className={`drop${dragOver ? " drag" : ""}`}
+              onDragOver={(e) => {
+                e.preventDefault();
+                setDragOver(true);
+              }}
+              onDragLeave={() => setDragOver(false)}
+              onDrop={(e) => {
+                e.preventDefault();
+                setDragOver(false);
+                const file = e.dataTransfer.files?.[0];
+                if (file && formRef.current) {
+                  const input = formRef.current.elements.namedItem(
+                    "roomPhoto",
+                  ) as HTMLInputElement;
+                  const dt = new DataTransfer();
+                  dt.items.add(file);
+                  input.files = dt.files;
+                  setFileName(file.name);
+                }
+              }}
+            >
+              <div className="icon">+</div>
+              <b>Klikni nebo přetáhni fotku</b>
+              <span className="hint">JPG/PNG, max 10 MB</span>
+              {fileName && <div className="file-name">✓ {fileName}</div>}
+              <input
+                type="file"
+                name="roomPhoto"
+                accept="image/*"
+                required
+                onChange={(e) =>
+                  setFileName(e.target.files?.[0]?.name ?? null)
+                }
+              />
+            </div>
+          </div>
 
-              {state.status === "error" && (
-                <div className="alert err">{state.message}</div>
-              )}
+          {state.status === "error" && (
+            <div className="alert err">{state.message}</div>
+          )}
 
-              <button type="submit" className="cta" disabled={pending}>
-                {pending ? "Odesílám…" : "Odeslat poptávku"}
-              </button>
+          <button type="submit" className="cta" disabled={pending}>
+            {pending ? "Odesílám…" : "Odeslat poptávku"}
+          </button>
 
-              <p className="trust">
-                Zdarma &nbsp;·&nbsp; Bez závazku &nbsp;·&nbsp; Odpověď do 24
-                hodin
-              </p>
-            </form>
+          <p className="trust">
+            Zdarma &nbsp;·&nbsp; Bez závazku &nbsp;·&nbsp; Odpověď do 24 hodin
+          </p>
+        </form>
 
-            <figure className="team">
-              <img src="/tym.jpg" alt="Náš tým – Tapety Metro Florenc" />
-              <figcaption>
-                Vizualizaci pro vás osobně připravíme my dva. Na e-mail vám
-                přijde přímo od nás.
-              </figcaption>
-            </figure>
-          </>
-        )}
+        <figure className="team">
+          <img src="/tym.jpg" alt="Náš tým – Tapety Metro Florenc" />
+          <figcaption>
+            Vizualizaci pro vás osobně připravíme my dva. Na e-mail vám
+            přijde přímo od nás.
+          </figcaption>
+        </figure>
       </main>
 
       <footer className="site">
