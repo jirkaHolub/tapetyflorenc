@@ -26,7 +26,7 @@ export default function ThankYouPage() {
           <span className="hl">do 24 hodin</span>.
         </h1>
         <p className="sub">
-          Zkontrolujte si e-mail (a pro jistotu i složku Hromadné). Pokud bude
+          Zkontrolujte si e-mail a pro jistotu i složku Hromadné. Pokud bude
           potřeba něco doladit, ozveme se zpátky.
         </p>
       </main>
