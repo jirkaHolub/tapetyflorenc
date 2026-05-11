@@ -19,7 +19,7 @@ export default function Page() {
     <>
       <header className="site">
         <div className="inner">
-          <a href="/" className="brand">
+          <a href="https://www.tapetymetroflorenc.cz" className="brand">
             <img src="/logo.svg" alt="Tapety Metro Florenc" />
           </a>
           <div className="tab">VIZUALIZACE ZDARMA</div>
@@ -83,6 +83,17 @@ export default function Page() {
               required
               placeholder="https://..."
             />
+            <p className="field-hint">
+              Podívejte se na naše tapety{" "}
+              <a
+                href="https://www.tapetymetroflorenc.cz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                zde
+              </a>
+              .
+            </p>
           </div>
 
           {!showLink2 && (

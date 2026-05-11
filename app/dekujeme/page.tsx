@@ -12,7 +12,7 @@ export default function ThankYouPage() {
     <>
       <header className="site">
         <div className="inner">
-          <a href="/" className="brand">
+          <a href="https://www.tapetymetroflorenc.cz" className="brand">
             <img src="/logo.svg" alt="Tapety Metro Florenc" />
           </a>
           <div className="tab">VIZUALIZACE ZDARMA</div>

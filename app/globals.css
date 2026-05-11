@@ -289,6 +289,21 @@ input:focus {
   color: var(--muted);
 }
 
+.field-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field-hint a {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.field-hint a:hover {
+  color: var(--slate);
+}
+
 .drop .file-name {
   margin-top: 10px;
   color: #18794e;
