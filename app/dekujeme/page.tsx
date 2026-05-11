@@ -22,11 +22,11 @@ export default function ThankYouPage() {
       <main>
         <span className="eyebrow">Hotovo</span>
         <h1>
-          Máme to. Vizualizaci ti pošleme{" "}
+          Máme to. Vizualizaci Vám pošleme{" "}
           <span className="hl">do 24 hodin</span>.
         </h1>
         <p className="sub">
-          Zkontroluj si e-mail (a pro jistotu i složku Hromadné). Pokud bude
+          Zkontrolujte si e-mail (a pro jistotu i složku Hromadné). Pokud bude
           potřeba něco doladit, ozveme se zpátky.
         </p>
       </main>

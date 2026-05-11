@@ -29,12 +29,12 @@ export default function Page() {
       <main>
         <span className="eyebrow">Zdarma · Do 24 hodin</span>
         <h1>
-          Uvidíš tapetu ve svém pokoji{" "}
-          <span className="hl">dřív, než ji koupíš</span>.
+          Uvidíte tapetu ve svém pokoji{" "}
+          <span className="hl">dřív, než ji koupíte</span>.
         </h1>
         <p className="sub">
-          Pošli odkaz na tapetu a fotku stěny. Náš designér ti zdarma
-          připraví realistickou vizualizaci, ať máš jistotu, že do tvého
+          Pošlete odkaz na tapetu a fotku stěny. Náš designér Vám zdarma
+          připraví realistickou vizualizaci, ať máte jistotu, že do Vašeho
           pokoje sedne.
         </p>
 
@@ -130,7 +130,7 @@ export default function Page() {
               }}
             >
               <div className="icon">+</div>
-              <b>Klikni nebo přetáhni fotku</b>
+              <b>Klikněte nebo přetáhněte fotku</b>
               <span className="hint">JPG/PNG, max 10 MB</span>
               {fileName && <div className="file-name">✓ {fileName}</div>}
               <input
@@ -161,7 +161,7 @@ export default function Page() {
         <figure className="team">
           <img src="/tym.jpg" alt="Náš tým – Tapety Metro Florenc" />
           <figcaption>
-            Vizualizaci pro vás osobně připravíme my dva. Na e-mail vám
+            Vizualizaci pro Vás osobně připravíme my dva. Na e-mail Vám
             přijde přímo od nás.
           </figcaption>
         </figure>
